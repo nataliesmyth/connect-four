@@ -161,8 +161,9 @@ select {
     padding-block: 1rem;
 }
 
-.flex.center {
+.flex.center-btn {
     justify-content: center;
+    padding-block: .75rem;
 }
 
 /* ------------------- */
@@ -170,11 +171,9 @@ select {
 /* ------------------- */
 
 .button {
-    background:hsl( var(--clr-pink));
     border-radius: 20px;
     border: 2px solid #000;
     align-items: center;
-    color:hsl( var(--clr-white));
     width: 30%;
     justify-content: space-between;
     position: relative;
@@ -200,13 +199,8 @@ select {
     height: 50px;
 }
 
-.play-vs-player {
-    background: hsl( var(--clr-yellow));
-    color: hsl( var(--clr-black) );
-}
-
-.button > [aria-selected="true"] {
-    border: 2px solid hsl( var(--clr-dark-blue));
+.button [aria-selected="true"] {
+    border-color: hsl( var(--clr-dark-blue));
 }
 .button:hover::after,
 .button::after > [aria-selected="true"] {
