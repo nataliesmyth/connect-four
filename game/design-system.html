@@ -5,20 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script defer src="app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Design System</title>
 </head>
 <body>
 
     <div class="container">
-        <h1>Design System</h1>
+        <h1 class="text-mid fs-400 uppercase" style="margin-block-start: 2rem;">Design System</h1>
 
-        <section id="colors">
-            <div class="bg-black text-light">#00000</div>
-            <div class="bg-dark-blue text-light">#5C2DD5</div>
-            <div class="bg-light-blue text-light">#7945FF</div>
-            <div class="bg-pink text-light">#FD6687</div>
-            <div class="bg-yellow text-dark">#FFCE67</div>
-            <div class="bg-white text-dark">#FFFFFF</div>
+        <section id="colors" style="margin: 4rem auto">
+            <h2 class="uppercase title">Colors</h2>
+            <div class="flex">
+                <div style="width: 350px;">
+                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-black text-light">#00000</div>
+                    <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">0,0,0</span></p>
+                    <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">0°,0%,0%</span></p>
+                </div>
+                <div style="width: 350px;">
+                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-dark-blue text-light">#5C2DD5</div>
+                    <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">92,45,210</span></p>
+                    <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">257°,67%,51%</span></p>
+                </div>
+                <div style="width: 350px;">
+                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-light-blue text-light">#7945FF</div>
+                    <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">121,69,255</span></p>
+                    <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">257°,100%,64%</span></p>
+                </div>
+            </div>
+            <div class="flex">
+                <div style="width: 350px;">
+                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-pink text-light">#FD6687</div>
+                    <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">253,102,135</span></p>
+                    <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">347°,97%,70%</span></p>
+                </div>
+                <div style="width: 350px;">
+                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-yellow text-dark">#FFCE67</div>
+                    <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">255,206,103</span></p>
+                    <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">41°,100%,70%</span></p>
+                </div>
+                <div style="width: 350px;">
+                    <div style="padding: 2.25rem 1rem .5rem 1rem; border-radius: 20px; border: 1px solid #000" class="bg-white text-dark">#FFFFFF</div>
+                    <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">255,255,255</span></p>
+                    <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">0°,0%,100%</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="typography">
+            <h2 class="uppercase">Typography</h2>
+            <div class="flex">
+                <div class="flow" style="flex-basis: 100%; --flow-space: 2rem">
+                    <p>Space Grotest Bold <span class="bold">56px</span> 71px Line</p>
+                    <p class="fs-700 semi-bold">Heading (L)</p>
+                    <p>Space Grotest Bold <span class="bold">24px</span> 31px Line</p>
+                    <p class="fs-600 semi-bold">Heading (M)</p>
+                    <p>Space Grotest Bold <span class="bold">20px</span> 26px Line</p>
+                    <p class="fs-400 semi-bold">Heading(S)</p>
+                    <p>Space Grotest Bold <span class="bold">16px</span> 21px Line</p>
+                    <p class="fs-300 semi-bold">Heading (XS)</p>
+                </div>
+                <div class="flow" style="flex-basis: 100%; --flow-space: 2rem">
+                    <p class="fs-300">Space Grotest Medium <span class="bold">16px</span> 21px Line</p>
+                    <p class="">Body text - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
+                    
+                    <p class="">Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna."</p>
+                </div>
+            </div>
+        </section>
+        <section id="interactive-elements" style="margin-bottom: 20rem">
+            <h2 class="uppercase">Interactive Elements</h2>
+            <div class="flex">
+                <button class="button cpu uppercase flex">play vs cpu <img src="assets/images/player-vs-cpu.svg" alt=""></button>
+                <button class="button play-vs-player uppercase flex">play vs player <img src="assets/images/player-vs-player.svg" alt=""></button>
+            </div>
+            <div class="flex">
+                <button aria-selected="true" class="button cpu uppercase flex">play vs cpu <img src="assets/images/player-vs-cpu.svg" alt=""></button>
+                <button aria-selected="true" class="button play-vs-player uppercase flex">play vs player <img src="assets/images/player-vs-player.svg" alt=""></button>
+            </div>
+            <div class="flex">
+                <button class="button uppercase flex center">Continue Game </button>
+                <button class="button uppercase flex center">Quit Game</button>
+            </div>
+            <div class="flex">
+                <button class="button uppercase flex center">Continue Game </button>
+                <button class="button uppercase flex center">Quit Game</button>
+            </div>
         </section>
     </div>
     
