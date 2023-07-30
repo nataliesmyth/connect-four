@@ -15,8 +15,8 @@
     <div class="container">
         <h1 class="text-mid fs-400 uppercase" style="margin-block-start: 2rem;">Design System</h1>
 
-        <section id="colors" style="margin: 4rem auto">
-            <h2 class="uppercase title">Colors</h2>
+        <section id="colors" style="margin: 2rem auto">
+            <h2 class="uppercase title fs-400">Colors</h2>
             <div class="flex">
                 <div style="width: 350px;">
                     <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-black text-light">#00000</div>
@@ -29,7 +29,7 @@
                     <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">257°,67%,51%</span></p>
                 </div>
                 <div style="width: 350px;">
-                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-light-blue text-light">#7945FF</div>
+                    <div style="padding: 2.5rem 1rem .5rem 1rem; border-radius: 20px" class="bg-purple text-light">#7945FF</div>
                     <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">121,69,255</span></p>
                     <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">257°,100%,64%</span></p>
                 </div>
@@ -46,51 +46,87 @@
                     <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">41°,100%,70%</span></p>
                 </div>
                 <div style="width: 350px;">
-                    <div style="padding: 2.25rem 1rem .5rem 1rem; border-radius: 20px; border: 1px solid #000" class="bg-white text-dark">#FFFFFF</div>
+                    <div style="padding: 2.25rem 1rem .5rem 1rem; border-radius: 20px; border: 3px solid #000" class="bg-white text-dark">#FFFFFF</div>
                     <p class="fs-300">RGB<span class="bold" style="margin-left:1.25em;">255,255,255</span></p>
                     <p class="fs-300">HSL<span class="bold" style="margin-left:1.25em;">0°,0%,100%</span></p>
                 </div>
             </div>
         </section>
 
-        <section id="typography">
-            <h2 class="uppercase">Typography</h2>
+        <section id="typography" style="margin: 3rem auto">
+            <h2 class="uppercase fs-400">Typography</h2>
             <div class="flex">
-                <div class="flow" style="flex-basis: 100%; --flow-space: 2rem">
-                    <p>Space Grotest Bold <span class="bold">56px</span> 71px Line</p>
-                    <p class="fs-700 semi-bold">Heading (L)</p>
-                    <p>Space Grotest Bold <span class="bold">24px</span> 31px Line</p>
-                    <p class="fs-600 semi-bold">Heading (M)</p>
-                    <p>Space Grotest Bold <span class="bold">20px</span> 26px Line</p>
-                    <p class="fs-400 semi-bold">Heading(S)</p>
-                    <p>Space Grotest Bold <span class="bold">16px</span> 21px Line</p>
-                    <p class="fs-300 semi-bold">Heading (XS)</p>
+                <div class="flow" style="flex-basis: 100%; --flow-space: 2rem;">
+                    <div>
+                        <p>Space Grotest Bold <span class="bold">56px</span> 71px Line</p>
+                        <p class="fs-700 bold">Heading (L)</p>
+                    </div>
+                    <div>
+                        <p>Space Grotest Bold <span class="bold">24px</span> 31px Line</p>
+                        <p class="fs-600 bold">Heading (M)</p>
+                    </div>
+                    <div>
+                        <p>Space Grotest Bold <span class="bold">20px</span> 26px Line</p>
+                        <p class="fs-400 bold">Heading (S)</p>
+                    </div>
+                    <div>
+                        <p>Space Grotest Bold <span class="bold">16px</span> 21px Line</p>
+                        <p class="fs-300 bold">Heading (XS)</p>
+                    </div>
                 </div>
                 <div class="flow" style="flex-basis: 100%; --flow-space: 2rem">
                     <p class="fs-300">Space Grotest Medium <span class="bold">16px</span> 21px Line</p>
                     <p class="">Body text - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</p>
-                    
                     <p class="">Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna."</p>
                 </div>
             </div>
         </section>
-        <section id="interactive-elements" style="margin-bottom: 20rem">
-            <h2 class="uppercase">Interactive Elements</h2>
+
+        <section id="interactive-elements" style="margin: 3rem auto">
+            <h2 class="uppercase fs-400" style="margin-block: 2rem;">Interactive Elements</h2>
             <div class="flex">
-                <button class="button cpu uppercase flex bg-pink text-light">play vs cpu <img src="assets/images/player-vs-cpu.svg" alt=""></button>
-                <button class="button uppercase flex bg-yellow">play vs player <img src="assets/images/player-vs-player.svg" alt=""></button>
+
+                <div class="flow" style="flex-basis: 100%; --flow-space: 2rem">
+                    
+                    <div>
+                        <button aria-selected="false" class="button cpu uppercase flex bg-pink text-light border-1">play vs cpu <img src="assets/images/player-vs-cpu.svg" alt=""></button>
+                        <button aria-selected="true" class="button cpu uppercase flex bg-pink text-light border-1">play vs cpu <img src="assets/images/player-vs-cpu.svg" alt=""></button>
+                        
+                    </div>
+                    
+                    <div>
+                        <button aria-selected="false" class="button uppercase bg-white flex center-btn bg-white text-dark border-1">Continue Game </button>
+                        <button aria-selected="false" class="button uppercase flex center-btn bg-white border-1">Continue Game </button>
+                    </div>
+
+                    <div>
+                        <a href="#" class="bg-dark-blue text-light menu uppercase border-2">Menu</a>
+                        <a href="#" class="bg-pink text-light menu uppercase border-2">Menu</a>
+                    </div>
+                </div>
+                
+                <div class="flow" style="flex-basis: 100%; --flow-space: 2rem">
+                    <div>
+                        <button aria-selected="false" class="button uppercase flex bg-yellow border-1">play vs player <img src="assets/images/player-vs-player.svg" alt=""></button>
+                        <button aria-selected="true" class="button play-vs-player uppercase flex bg-yellow border-1">play vs player <img src="assets/images/player-vs-player.svg" alt=""></button>
+                    </div>
+                    <div>
+                        
+                        <button aria-selected="false" class="button uppercase flex center-btn bg-pink text-light border-1">Quit Game</button>
+                        <button aria-selected="false" class="button uppercase flex center-btn bg-pink text-light border-1">Quit Game</button>
+                    </div>
+
+                    <div>
+                        <a class="check-icon" href="#"><img src="assets/images/icon-check.svg" alt=""></a>
+                        <a class="check-icon" href="#"><img src="assets/images/icon-check.svg" alt=""></a>
+                    </div>
+                </div>
             </div>
-            <div class="flex">
-                <button aria-selected="true" class="button cpu uppercase flex bg-pink text-light">play vs cpu <img src="assets/images/player-vs-cpu.svg" alt=""></button>
-                <button aria-selected="true" class="button play-vs-player uppercase flex bg-yellow">play vs player <img src="assets/images/player-vs-player.svg" alt=""></button>
-            </div>
-            <div class="flex">
-                <button class="button uppercase bg-white flex center-btn bg-white text-dark">Continue Game </button>
-                <button class="button uppercase flex center-btn bg-pink text-light">Quit Game</button>
-            </div>
-            <div class="flex">
-                <button class="button uppercase flex center-btn bg-white">Continue Game </button>
-                <button class="button uppercase flex center-btn bg-pink text-light">Quit Game</button>
+
+            <div class="flex" style="margin-block: 4rem; justify-content: space-around;">
+               
+            
+                
             </div>
         </section>
     </div>
