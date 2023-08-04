@@ -7,19 +7,29 @@
 // --------- Cached DOM Elements
 const gameRules = document.getElementById('game-rules');
 const gameRulesBtn = document.getElementById('game-rules-btn')
-const mainMenu = document.getElementsByClassName('main-menu')
+const mainMenu = document.getElementById('mainMenu')
 const enterTwoPlayerGame = document.getElementById('twoPlayer')
 const logo = document.getElementById('logo')
 console.log(enterTwoPlayerGame)
+const exitRulesBtn = document.getElementById('exitRulesBtn')
 
 // console.log(mainMenu)
 
 
 gameRulesBtn.addEventListener('click', handleClick);
 
-function handleClick(evt) {
+function handleClick() {
     gameRulesBtn.style.display = "none";
     enterTwoPlayerGame.style.display = "none";
     logo.style.display = "none";
     gameRules.style.display = "block";
+}
+
+exitRulesBtn.addEventListener('click', handleExitRulesClick);
+
+function handleExitRulesClick() {
+    gameRules.style.display = 'none';
+    gameRulesBtn.style.display = "flex";
+    enterTwoPlayerGame.style.display = "flex";
+    logo.style.display = "flex";
 }
