@@ -109,7 +109,7 @@ select {
 }
 
 .container {
-    padding-inline: 2em;
+    padding-inline: 1em;
     margin-inline: auto;
     max-width: 80rem;
 }
@@ -134,7 +134,8 @@ select {
 .bg-yellow { background-color: hsl( var(--clr-yellow)); }
 .bg-white { background-color: hsl( var(--clr-white)); }
 
-.text-dark { color: hsl( var(--clr-black)); }
+.text-black { color: hsl( var(--clr-black) ); }
+.text-dark { color: hsl( var(--clr-black) / .7 ); }
 .text-mid { color: hsl( var(--clr-purple)); }
 .text-light { color: hsl( var(--clr-white)); }
 
@@ -158,9 +159,10 @@ select {
 .fs-300 { font-size: var(--fs-300); }
 .fs-200 { font-size: var(--fs-200); }
 
-.border-1{ border-radius: 20px;}
-.border-2{ border-radius: 100px;}
-.border-3{ border-radius: 50%;}
+.border-0 { border-radius: 20px; }
+.border-1 { border-radius: 40px; }
+.border-2 { border-radius: 100px; }
+.border-3 { border-radius: 50%; }
 
 .title {
     padding-block: 1rem;
@@ -236,5 +238,41 @@ a:hover {
 }
 
 .main-menu {
-    margin-block: 7em;
+    margin-block: 2em;
 }
+
+/* game rules */
+
+.game-rules {
+    display: none;
+    /* width: 375px; */
+    padding: 20px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 3px solid hsl( var(--clr-black) );
+    box-shadow: 0px 10px 0px 0px;
+}
+
+@counter-style no-decimal-point {
+    system: extends decimal;
+    suffix: '';
+    font-weight: 700; 
+  }
+  
+  ol {
+    list-style: no-decimal-point;
+    /* align-self: start; */
+    padding-left: .25em;
+    /* font-weight: bold; */
+  }
+  
+  li {
+    padding-inline-start: .75em;
+    padding-block-end: .75em;
+    font-feature-settings: 'clig' off, 'liga' off;
+  }
+
+  ol li::marker {
+    font-weight: bold;
+    color: hsl( var(--clr-black) )
+  }
