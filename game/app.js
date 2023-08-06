@@ -33,3 +33,4 @@ function handleExitRulesClick() {
     enterTwoPlayerGame.style.display = "flex";
     logo.style.display = "flex";
 }
+
