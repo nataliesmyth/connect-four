@@ -222,9 +222,10 @@ button:hover {
 }
 
 .menu {
+    text-align: center;
     text-decoration: none;
     padding-inline: 1rem;
-    padding-block: .4rem;
+    padding-block: 0.609375rem;
     height: 50%;
     align-self: center;
 }
@@ -308,7 +309,17 @@ button:hover {
 /* ------------------- */
 
 .nav {
-    flex-direction: column;
+    /* flex-direction: row; */
+    padding-inline: 1em;
+}
+
+.nav > .logo {
+    width: 2.5rem;
+    padding: 0;
+}
+
+.nav > a {
+    width: 6.5rem;
 }
 
 .board {
