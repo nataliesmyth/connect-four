@@ -11,10 +11,15 @@
 <body class="bg-purple">
     <main class="main">
         <nav class="nav flex">
-            <a href="#" class="bg-dark-purple text-light menu uppercase border-2 fs-400">Menu</a>
+            <a href="#" class="bg-dark-purple text-light menu uppercase border-2 fs-400 no-shadow">Menu</a>
             <div class="logo"><img src="assets/images/logo.svg" alt="connect four logo" id="logo"></div>
-                <a href="#" class="bg-dark-purple text-light menu uppercase border-2">Restart</a>
+                <button id="restartBtn" class="bg-dark-purple text-light menu uppercase border-2 no-shadow">Restart</button>
         </nav>
+
+        <div class="score flex container">
+            <div class="player-one bg-white uppercase ff-sans border-1 container fs-400 box-shadow">Player 1</div>
+            <div class="player-two bg-white uppercase ff-sans border-1 container fs-400 box-shadow">Player 2</div> 
+        </div>
         <div id="boardBackground" class="boardBgd border-0"></div>
         <div id="board" class="board border-0"></div>
         <h2 id="winner"></h2>
