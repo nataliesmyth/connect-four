@@ -327,6 +327,10 @@ a {
 /* Game Board          */
 /* ------------------- */
 
+.main {
+    margin-inline: 1em;
+}
+
 .nav {
     /* flex-direction: row; */
     padding-inline: 1em;
@@ -403,6 +407,10 @@ a {
     position: relative;
 }
 
+.score > player {
+    width: 100%;
+}
+
 .timer-container {
     width: 50%;
     flex-direction: column;
@@ -410,6 +418,19 @@ a {
     align-items: center;
     gap: .25em;
     border: 3px solid hsl( var(--clr-black) );
+}
+
+.player {
+    border: 3px solid hsl( var(--clr-black) );
+    padding-block: .75em;
+}
+
+.player-one {
+    padding-inline: 2em;
+}
+
+.player-two {
+    padding-inline: 2em;
 }
 
 .player-one,
