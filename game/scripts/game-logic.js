@@ -11,8 +11,25 @@ let currColumns;
 let rows = 6;
 let columns = 7;
 
+let currentTime = 15;
+const timerText = document.getElementById('timer');
+const btnStart = document.getElementById('btn-start');
+let count = 15;
+
+// btnStart.addEventListener('click', function() {
+    
+// })
+
 window.onload = function() {
     setGame()
+    const intervalID = setInterval(function() {
+        count -= 1;
+        timerText.textContent = count;
+        if (count === 0) {
+            clearInterval(intervalID)
+        }
+    }, 1000)
+
 }
 
 function setGame() {
@@ -20,7 +37,6 @@ function setGame() {
     currColumns = [5, 5, 5, 5, 5, 5, 5]
     
     for (let r = 0; r < rows; r++) {
-        console.log(r)
         let row = []
         for (let c = 0; c < columns; c++) {
             row.push(' ');
@@ -31,7 +47,6 @@ function setGame() {
             document.getElementById('board').append(tile);
         }
         board.push(row)
-        console.log(board)
     }
 
 }
@@ -52,7 +67,7 @@ function setPiece() {
 
     board[r][c] = currentPlayer;
     let tile = document.getElementById(r.toString() + '-' + c.toString());
-    console.log(tile)
+    // console.log(tile)
     if (currentPlayer == playerRed) {
         tile.classList.add('red-piece')
         currentPlayer = playerYellow
@@ -62,7 +77,7 @@ function setPiece() {
     }
 
     r -= 1;
-    console.log(r)
+    // console.log(r)
     currColumns[c] = r;
 
     checkWinner()
@@ -135,7 +150,29 @@ function setWinner(r, c) {
     } else if (board[r][c] == playerYellow) {
         winner.innerText = 'Yellow wins!'
     }
-    console.log(winner)
+    // console.log(winner)
 
     gameOver = true;
 }
+
+let restartGame = document.getElementById('restartBtn');
+restartGame.addEventListener('click', handleRestart);
+
+console.log(tile)
+
+// Timer
+
+
+
+function countDown() {
+    currentTime--
+    if (currentTime > 0) {
+        timeLeft.textContent = currentTime;
+        console.log(currentTime)
+    } else {
+        clearInterval(timerId);
+        alert('player one turn is over')
+    }
+}
+
+const timerId = setInterval(startTimer, 1000);
