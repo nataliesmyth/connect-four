@@ -351,6 +351,7 @@ a {
     background-color: hsl( var(--clr-white));
     border: 3px solid hsl( var(--clr-black) );
     margin: 2em auto;
+    margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
@@ -412,12 +413,22 @@ a {
 }
 
 .timer-container {
-    width: 50%;
+    background-image: url(assets/images/Rectangle\(1\).svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 9.375rem;
+    width: 11.9rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: .25em;
-    border: 3px solid hsl( var(--clr-black) );
+    z-index: 3000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* top: 100; */
 }
 
 .player {
@@ -471,10 +482,12 @@ a {
     z-index: 10;
 }
 
+.timer-container-text {
+    margin-block-start: 2.5em;
+}
+
+div > p {
+    text-align: center;
+}
 
 
-/* .player-one:hover,
-.player-two:hover,
-.timer-container:hover {
-    display: none;
-} */

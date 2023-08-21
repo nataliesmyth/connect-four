@@ -14,6 +14,9 @@ let columns = 7;
 let currentTime = 15;
 const timerText = document.getElementById('timer');
 const btnStart = document.getElementById('btn-start');
+let redWinCount = document.getElementById('red-win-count')
+let yellowWinCount = document.getElementById('yellow-win-count')
+let currPlayerText = document.getElementById('current-player')
 let count = 15;
 
 // btnStart.addEventListener('click', function() {
@@ -27,9 +30,10 @@ window.onload = function() {
         timerText.textContent = count;
         if (count === 0) {
             clearInterval(intervalID)
+            currPlayerText.innerText = 2;
+            timerText.innerText = 15;
         }
     }, 1000)
-
 }
 
 function setGame() {
@@ -147,8 +151,10 @@ function setWinner(r, c) {
     let winner = document.getElementById('winner');
     if (board[r][c] == playerRed) {
         winner.innerText = 'Red wins!'
+        redWinCount.innerText += 1
     } else if (board[r][c] == playerYellow) {
         winner.innerText = 'Yellow wins!'
+        yellowWinCount.innerText += 1
     }
     // console.log(winner)
 
@@ -157,8 +163,6 @@ function setWinner(r, c) {
 
 let restartGame = document.getElementById('restartBtn');
 restartGame.addEventListener('click', handleRestart);
-
-console.log(tile)
 
 // Timer
 

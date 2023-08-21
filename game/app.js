@@ -13,7 +13,9 @@ const logo = document.getElementById('logo')
 console.log(enterTwoPlayerGame)
 const exitRulesBtn = document.getElementById('exitRulesBtn')
 
-// console.log(mainMenu)
+
+
+
 
 
 gameRulesBtn.addEventListener('click', handleClick);
@@ -34,3 +36,8 @@ function handleExitRulesClick() {
     logo.style.display = "flex";
 }
 
+function handleRestart() {
+    tile.classList.remove('red-piece')
+    tile.classList.remove('yellow-piece')
+    setGame()
+}
