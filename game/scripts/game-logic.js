@@ -11,13 +11,13 @@ let currColumns;
 let rows = 6;
 let columns = 7;
 
-let currentTime = 15;
+let currentTime = 5;
 const timerText = document.getElementById('timer');
 const btnStart = document.getElementById('btn-start');
 let redWinCount = document.getElementById('red-win-count')
 let yellowWinCount = document.getElementById('yellow-win-count')
 let currPlayerText = document.getElementById('current-player')
-let count = 15;
+let count = 5;
 
 // btnStart.addEventListener('click', function() {
     
@@ -25,15 +25,19 @@ let count = 15;
 
 window.onload = function() {
     setGame()
-    const intervalID = setInterval(function() {
-        count -= 1;
-        timerText.textContent = count;
-        if (count === 0) {
-            clearInterval(intervalID)
-            currPlayerText.innerText = 2;
-            timerText.innerText = 15;
-        }
-    }, 1000)
+}
+const intervalID = setInterval(setTimer, 1000)
+
+function setTimer() {
+    count -= 1;
+    timerText.textContent = count;
+    if (count === 0) {
+        currentTime = 5;
+        count = 5;
+        clearInterval(intervalID)
+        currPlayerText.innerText = 2;
+        timerText.innerText = 5;
+    }
 }
 
 function setGame() {
@@ -85,6 +89,21 @@ function setPiece() {
     currColumns[c] = r;
 
     checkWinner()
+}
+
+function switchPlayer() {
+    if (currentPlayer === playerRed && currentTime === 0) {
+        currentPlayer = playerYellow;
+        const intervalID = setInterval(function() {
+            count -= 1;
+            timerText.textContent = count;
+            if (count === 0) {
+                clearInterval(intervalID)
+                currPlayerText.innerText = 2;
+                timerText.innerText = 5;
+            }
+        }, 1000)
+    }
 }
 
 function checkWinner() {
@@ -164,19 +183,27 @@ function setWinner(r, c) {
 let restartGame = document.getElementById('restartBtn');
 restartGame.addEventListener('click', handleRestart);
 
+function handleRestart() {
+    console.log(board[r])
+    currentTime = 5;
+    count = 5;
+    timerText.innerText = count;
+    clearInterval(intervalID);
+    setInterval(setTimer, 1000)
+}
+
 // Timer
 
 
 
-function countDown() {
-    currentTime--
-    if (currentTime > 0) {
-        timeLeft.textContent = currentTime;
-        console.log(currentTime)
-    } else {
-        clearInterval(timerId);
-        alert('player one turn is over')
-    }
-}
+// function countDown() {
+//     currentTime--
+//     if (currentTime > 0) {
+//         timeLeft.textContent = currentTime;
+//         console.log(currentTime)
+//     } else {
+//         clearInterval(timerId);
+//         alert('player one turn is over')
+//     }
+// }
 
-const timerId = setInterval(startTimer, 1000);
