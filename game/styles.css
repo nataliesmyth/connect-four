@@ -291,7 +291,7 @@ a {
 @counter-style no-decimal-point {
     system: extends decimal;
     suffix: '';
-    font-weight: 700; 
+    /* font-weight: 700;  */
   }
   
   ol {
@@ -413,6 +413,7 @@ a {
 }
 
 .timer-container {
+    /* display: none; */
     background-image: url(assets/images/Rectangle\(1\).svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -490,4 +491,10 @@ div > p {
     text-align: center;
 }
 
-
+.winner-container {
+    display: none;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    z-index: 49000;
+}
