@@ -118,6 +118,7 @@ select {
 .container {
     padding-inline: 1em;
     margin-inline: auto;
+    /* width: 30rem; */
     max-width: 80rem;
 }
 
@@ -271,8 +272,9 @@ a {
 }
 
 .main-menu {
-    margin-block: 2em;
-    padding-block: 2em;
+    /* margin: 5em auto; */
+    padding: 12.6875rem 1.25rem 19rem 1.25rem; 
+    background-color: red;
 }
 
 /* game rules */
@@ -346,7 +348,7 @@ a {
 }
 
 .board {
-    width: 20.9rem;
+    width: 20.9375rem;
     height: 19.375rem;
     background-color: hsl( var(--clr-white));
     border: 3px solid hsl( var(--clr-black) );
@@ -404,6 +406,7 @@ a {
 }
 
 .score {
+    margin: 0 auto;
     text-align: center;
     position: relative;
 }
