@@ -26,19 +26,7 @@ let count = 5;
 window.onload = function() {
     setGame()
 }
-const intervalID = setInterval(setTimer, 1000)
-
-function setTimer() {
-    count -= 1;
-    timerText.textContent = count;
-    if (count === 0) {
-        currentTime = 5;
-        count = 5;
-        clearInterval(intervalID)
-        currPlayerText.innerText = 2;
-        timerText.innerText = 5;
-    }
-}
+const intervalID = setInterval(setTimer, 1000);
 
 function setGame() {
     board = [];
@@ -53,13 +41,34 @@ function setGame() {
             tile.classList.add('tile');
             tile.addEventListener('click', setPiece);
             document.getElementById('board').append(tile);
+            console.log(tile)
         }
         board.push(row)
     }
+}
 
+
+function setTimer() {
+    count -= 1;
+    timerText.textContent = count;
+    if (count === 0) {
+        // if (currentPlayer === 'r'){
+        //     currentPlayer = 'y';
+        // } else {
+        //     currentPlayer = 'r'
+        // }
+        console.log(currentPlayer)
+        currentTime = 5;
+        count = 5;
+        clearInterval(intervalID)
+        timerText.innerText = 5;
+    }
+    
+    
 }
 
 function setPiece() {
+    // if there is a winner, the function does nothing so pieces cannot be set
     if (gameOver) {
         return;
     }
@@ -78,11 +87,13 @@ function setPiece() {
     // console.log(tile)
     if (currentPlayer == playerRed) {
         tile.classList.add('red-piece')
+        clearInterval(intervalID)
         currentPlayer = playerYellow
     } else {
         tile.classList.add('yellow-piece')
         currentPlayer = playerRed
     }
+    // setInterval(setTimer, 1000);
 
     r -= 1;
     // console.log(r)
@@ -94,11 +105,12 @@ function setPiece() {
 function switchPlayer() {
     if (currentPlayer === playerRed && currentTime === 0) {
         currentPlayer = playerYellow;
-        const intervalID = setInterval(function() {
+        intervalID = setInterval(function() {
             count -= 1;
             timerText.textContent = count;
             if (count === 0) {
                 clearInterval(intervalID)
+                count = 5;
                 currPlayerText.innerText = 2;
                 timerText.innerText = 5;
             }
@@ -175,6 +187,8 @@ function setWinner(r, c) {
         winner.innerText = 'Yellow wins!'
         yellowWinCount.innerText += 1
     }
+    console.log('winner! play again?')
+
     // console.log(winner)
 
     gameOver = true;
@@ -182,15 +196,31 @@ function setWinner(r, c) {
 
 let restartGame = document.getElementById('restartBtn');
 restartGame.addEventListener('click', handleRestart);
+let menu = document.getElementById('game-menu')
+// menu.addEventListener('click', )
 
-function handleRestart() {
-    console.log(board[r])
-    currentTime = 5;
-    count = 5;
-    timerText.innerText = count;
-    clearInterval(intervalID);
-    setInterval(setTimer, 1000)
-}
+    function handleRestart() {
+        gameOver = false;
+        currentPlayer = playerRed;
+        document.getElementById('board').innerHTML = '';
+        clearInterval(intervalID);
+        setInterval(setTimer, 1000);
+        currentTime = 5;
+        count = 5;
+        timerText.innerText = count;
+        setGame()
+    }
+// function handleRestartFirstDraft() {
+//     for (let r = 0; r <= rows; r++) {
+//         if (board[r] !== ' ') {
+//             board[r] = ' ';
+//             tile.classList.add('red-piece')
+//         }
+//         for(let c = 0; c <= columns; c++) {
+//         }
+//     }
+//     console.log(board)
+// }
 
 // Timer
 
