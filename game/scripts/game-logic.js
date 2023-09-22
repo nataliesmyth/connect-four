@@ -236,4 +236,3 @@ let menu = document.getElementById('game-menu')
 //         alert('player one turn is over')
 //     }
 // }
-
