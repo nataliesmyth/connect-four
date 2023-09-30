@@ -14,11 +14,16 @@ let columns = 7;
 let currentTime = 5;
 const timerText = document.getElementById('timer');
 const btnStart = document.getElementById('btn-start');
+let restartGame = document.getElementById('restartBtn');
 let redWinCount = document.getElementById('red-win-count')
 let yellowWinCount = document.getElementById('yellow-win-count')
 let currPlayerText = document.getElementById('current-player')
 let count = 5;
+let redWinTotal = 0;
+let yellowWinTotal = 0;
+let menu = document.getElementById('game-menu');
 
+restartGame.addEventListener('click', handleRestart);
 // btnStart.addEventListener('click', function() {
     
 // })
@@ -62,9 +67,7 @@ function setTimer() {
         count = 5;
         clearInterval(intervalID)
         timerText.innerText = 5;
-    }
-    
-    
+    }  
 }
 
 function setPiece() {
@@ -89,9 +92,11 @@ function setPiece() {
         tile.classList.add('red-piece')
         clearInterval(intervalID)
         currentPlayer = playerYellow
+        currPlayerText.innerText = 2
     } else {
         tile.classList.add('yellow-piece')
         currentPlayer = playerRed
+        currPlayerText.innerText = 1;
     }
     // setInterval(setTimer, 1000);
 
@@ -181,11 +186,13 @@ function checkWinner() {
 function setWinner(r, c) {
     let winner = document.getElementById('winner');
     if (board[r][c] == playerRed) {
+        redWinTotal++
         winner.innerText = 'Red wins!'
-        redWinCount.innerText += 1
+        redWinCount.innerText = redWinTotal
     } else if (board[r][c] == playerYellow) {
+        yellowWinTotal++
         winner.innerText = 'Yellow wins!'
-        yellowWinCount.innerText += 1
+        yellowWinCount.innerText = yellowWinTotal;
     }
     console.log('winner! play again?')
 
@@ -194,9 +201,7 @@ function setWinner(r, c) {
     gameOver = true;
 }
 
-let restartGame = document.getElementById('restartBtn');
-restartGame.addEventListener('click', handleRestart);
-let menu = document.getElementById('game-menu')
+
 // menu.addEventListener('click', )
 
     function handleRestart() {
