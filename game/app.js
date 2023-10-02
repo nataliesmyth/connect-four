@@ -14,11 +14,8 @@ console.log(enterTwoPlayerGame)
 const exitRulesBtn = document.getElementById('exitRulesBtn')
 
 
-
-
-
-
 gameRulesBtn.addEventListener('click', handleClick);
+exitRulesBtn.addEventListener('click', handleExitRulesClick);
 
 function handleClick() {
     gameRulesBtn.style.display = "none";
@@ -27,17 +24,10 @@ function handleClick() {
     gameRules.style.display = "block";
 }
 
-exitRulesBtn.addEventListener('click', handleExitRulesClick);
 
 function handleExitRulesClick() {
     gameRules.style.display = 'none';
     gameRulesBtn.style.display = "flex";
     enterTwoPlayerGame.style.display = "flex";
     logo.style.display = "flex";
-}
-
-function handleRestart() {
-    tile.classList.remove('red-piece')
-    tile.classList.remove('yellow-piece')
-    setGame()
 }
