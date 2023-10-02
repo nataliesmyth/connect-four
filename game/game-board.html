@@ -35,16 +35,26 @@
         </div>
         <div id="boardBackground" class="boardBgd border-0"></div>
         <div id="board" class="board border-0"></div>
-        <section class="timer-background bg-dark-purple container">
-            <div class="flex timer-container">
+        <section class="timer-background bg-dark-purple container"
+        id="timerBackground">
+            <div class="flex timer-container" id="timerContainer">
                 <div class="timer-container-text">
                     <p class="uppercase text-light">player <span id="current-player">1</span>'s turn</p>
-                    <p class="text-light fs-800 fw-600"><span id="timer">15</span>s</p>
+                    <p class="text-light fs-800 fw-600"><span id="timer">30</span>s</p>
                 </div>
             </div>
         </section>
-        <div class="winner-container bg-white border-2 uppercase">
-            <h2 id="winner"></h2>
+        <div class="winner-background bg-red" id="winnerBackground">
+            <div class="winner-container bg-white border-2 uppercase" id="winnerContainer">
+                <section class="winner-text-container">
+                    <p class="fw-400 winner-text" id="winner"></p>
+                    <p class="uppercase fs-800 fw-600">wins</p>
+                </section>
+                <section class="play-again">
+                    <button class="btn-play-again uppercase bg-dark-purple text-light border-0">play again</button>
+                </section>
+            </div>
+            
 
         </div>
 

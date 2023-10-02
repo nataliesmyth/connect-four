@@ -494,12 +494,39 @@ div > p {
     text-align: center;
 }
 
+.winner-background {
+    display: none;
+    position: fixed;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    border: 2px solid red;
+    height: 100rem;
+    border-radius: 60px 60px 0 0;
+}
+
 .winner-container {
     display: none;
+    margin: auto;
+    width: 17.8125rem;
+    height: 10rem;
+    flex-shrink: 0; 
+    border-radius: 1.25rem;
+    border: 3px solid var(--Black, #000);
+    background: var(--White, #FFF);
+    box-shadow: 0px 10px 0px 0px #000;
     /* display: flex; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 49000;
+    z-index: 50000;
+}
+
+.winner-text-container {
+    /* padding-block: 1em 0; */
+}
+.winner-text {
+    text-align: center;
 }
 
 .timer-background {
@@ -510,6 +537,11 @@ div > p {
     /* border: 2px solid red; */
     height: 100rem;
     border-radius: 100px 100px 0 0;
+}
+
+.btn-play-again {
+    padding: .5em 1em;
+    border: none;
 }
 
 @media (min-width: 768px) {

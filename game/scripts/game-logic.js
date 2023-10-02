@@ -1,8 +1,9 @@
-console.log('sanity check')
+// ----- App State ----- //
 
 let playerRed = 'r'
 let playerYellow = 'y'
 let currentPlayer = playerRed;
+const trackFirstPlayer = [];
 
 let gameOver = false;
 let board;
@@ -12,8 +13,9 @@ let rows = 6;
 let columns = 7;
 
 let currentTime = 5;
+
+// ----- Cached DOM Elements ----- //
 const timerText = document.getElementById('timer');
-const btnStart = document.getElementById('btn-start');
 let restartGame = document.getElementById('restartBtn');
 let redWinCount = document.getElementById('red-win-count')
 let yellowWinCount = document.getElementById('yellow-win-count')
@@ -22,18 +24,26 @@ let count = 5;
 let redWinTotal = 0;
 let yellowWinTotal = 0;
 let menu = document.getElementById('game-menu');
+let timerContainer = document.getElementById('timerContainer')
+let timerBackground = document.getElementById('timerBackground')
+let winnerContainer = document.getElementById('winnerContainer')
+let winnerBackground = document.getElementById('winnerBackground');
 
-restartGame.addEventListener('click', handleRestart);
-// btnStart.addEventListener('click', function() {
-    
-// })
+restartGame.addEventListener('click', handleRestartClick);
 
 window.onload = function() {
     setGame()
 }
+
 const intervalID = setInterval(setTimer, 1000);
 
 function setGame() {
+    if (trackFirstPlayer.length % 2 === 0) {
+        trackFirstPlayer.push('r')
+    } else {
+        trackFirstPlayer.push('y')
+    }
+    console.log(trackFirstPlayer)
     board = [];
     currColumns = [5, 5, 5, 5, 5, 5, 5]
     
@@ -46,7 +56,7 @@ function setGame() {
             tile.classList.add('tile');
             tile.addEventListener('click', setPiece);
             document.getElementById('board').append(tile);
-            console.log(tile)
+            // console.log(tile)
         }
         board.push(row)
     }
@@ -54,19 +64,12 @@ function setGame() {
 
 
 function setTimer() {
-    count -= 1;
+    currentTime = 5;
+    count = 5;
     timerText.textContent = count;
     if (count === 0) {
-        // if (currentPlayer === 'r'){
-        //     currentPlayer = 'y';
-        // } else {
-        //     currentPlayer = 'r'
-        // }
         console.log(currentPlayer)
-        currentTime = 5;
-        count = 5;
-        clearInterval(intervalID)
-        timerText.innerText = 5;
+        switchPlayer()
     }  
 }
 
@@ -89,14 +92,13 @@ function setPiece() {
     let tile = document.getElementById(r.toString() + '-' + c.toString());
     // console.log(tile)
     if (currentPlayer == playerRed) {
+        
         tile.classList.add('red-piece')
         clearInterval(intervalID)
         currentPlayer = playerYellow
-        currPlayerText.innerText = 2
     } else {
         tile.classList.add('yellow-piece')
         currentPlayer = playerRed
-        currPlayerText.innerText = 1;
     }
     // setInterval(setTimer, 1000);
 
@@ -108,19 +110,12 @@ function setPiece() {
 }
 
 function switchPlayer() {
-    if (currentPlayer === playerRed && currentTime === 0) {
+    if (currentPlayer === playerRed) {
         currentPlayer = playerYellow;
-        intervalID = setInterval(function() {
-            count -= 1;
-            timerText.textContent = count;
-            if (count === 0) {
-                clearInterval(intervalID)
-                count = 5;
-                currPlayerText.innerText = 2;
-                timerText.innerText = 5;
-            }
-        }, 1000)
+    } else {
+        currentPlayer = playerRed;
     }
+    setTimer()
 }
 
 function checkWinner() {
@@ -187,11 +182,11 @@ function setWinner(r, c) {
     let winner = document.getElementById('winner');
     if (board[r][c] == playerRed) {
         redWinTotal++
-        winner.innerText = 'Red wins!'
+        winner.innerText = 'player 1'
         redWinCount.innerText = redWinTotal
     } else if (board[r][c] == playerYellow) {
         yellowWinTotal++
-        winner.innerText = 'Yellow wins!'
+        winner.innerText = 'player 2'
         yellowWinCount.innerText = yellowWinTotal;
     }
     console.log('winner! play again?')
@@ -199,45 +194,57 @@ function setWinner(r, c) {
     // console.log(winner)
 
     gameOver = true;
+    redWinState()
+    // handleRestart()
+    // setGame()
 }
 
-
 // menu.addEventListener('click', )
+    function handleRestartClick() {
+        gameOver = false;
+        
+        document.getElementById('board').innerHTML = '';
+        redWinTotal = 0;
+        redWinCount.innerText = redWinTotal;
+        yellowWinTotal = 0;
+        yellowWinCount.innerText = yellowWinTotal;
+        // clearInterval(intervalID);
+        setTimer();
+        setGame();
+    }
 
     function handleRestart() {
         gameOver = false;
-        currentPlayer = playerRed;
+        
         document.getElementById('board').innerHTML = '';
-        clearInterval(intervalID);
-        setInterval(setTimer, 1000);
-        currentTime = 5;
-        count = 5;
-        timerText.innerText = count;
-        setGame()
+        // redWinTotal = 0;
+        // redWinCount.innerText = redWinTotal;
+        // yellowWinTotal = 0;
+        // yellowWinCount.innerText = yellowWinTotal;
+        // clearInterval(intervalID);
+        setTimer();
+        setGame();
     }
-// function handleRestartFirstDraft() {
-//     for (let r = 0; r <= rows; r++) {
-//         if (board[r] !== ' ') {
-//             board[r] = ' ';
-//             tile.classList.add('red-piece')
-//         }
-//         for(let c = 0; c <= columns; c++) {
-//         }
-//     }
-//     console.log(board)
-// }
 
-// Timer
+    function handlePlayerOne() {
+        if (trackFirstPlayer % 2 === 0) {
+            currentPlayer === playerRed;
+            console.log(currentPlayer)
+        } else if (trackFirstPlayer % 2 !== 0) {
+            currentPlayer === playerYellow;
+        }
+    }
 
+    function redWinState() {
+        // if red wins, red win state is shown
+        timerContainer.style.display = 'none';
+        timerBackground.style.display = 'none';
+        winnerContainer.style.display = 'flex';
+        winnerBackground.style.display = 'block';
+        console.log('red win state')
+    }
 
-
-// function countDown() {
-//     currentTime--
-//     if (currentTime > 0) {
-//         timeLeft.textContent = currentTime;
-//         console.log(currentTime)
-//     } else {
-//         clearInterval(timerId);
-//         alert('player one turn is over')
-//     }
-// }
+    function yellowWinState() {
+        // if yellow wins, yellow win state is shown
+        console.log('yellow win state')
+    }
