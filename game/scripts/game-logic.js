@@ -34,9 +34,14 @@ let winnerContainer = document.getElementById('winnerContainer')
 let winnerBackground = document.getElementById('winnerBackground');
 
 restartGame.addEventListener('click', handleRestartClick);
-playAgainBtn.addEventListener('click', playAgain)
+playAgainBtn.addEventListener('click', playAgain);
+menu.addEventListener('click', handleInGameMenu);
 window.onload = function() {
     setGame()
+}
+
+function handleInGameMenu() {
+    console.log('in game menu');
 }
 
 const intervalID = setInterval(setTimer, 1000);
@@ -44,10 +49,11 @@ const intervalID = setInterval(setTimer, 1000);
 function playAgain() {
     document.getElementById('board').innerHTML = '';
     gameOver = false;
-    handlePlayerOne();
-    playerRedState();
+    winnerBackground.style.display = 'none';
+    timerBackground.style.display = 'block';
+    handleFirstPlayer();
     setGame();
-
+    setTimer();
 }
 
 function setGame() {
@@ -109,8 +115,6 @@ function setPiece() {
         tile.classList.add('red-piece')
         clearInterval(intervalID)
         currentPlayer = playerYellow;
-        // timerContainerRed.display = none;
-        // timerContainerYellow.display = block;
         playerYellowState();
     } else {
         tile.classList.add('yellow-piece')
@@ -240,16 +244,20 @@ function setWinner(r, c) {
         // yellowWinTotal = 0;
         // yellowWinCount.innerText = yellowWinTotal;
         // clearInterval(intervalID);
+        
         setTimer();
         setGame();
+        handleFirstPlayer()
     }
 
-    function handlePlayerOne() {
+    function handleFirstPlayer() {
         if (trackFirstPlayer % 2 === 0) {
-            currentPlayer === playerRed;
+            playerOne === playerRed;
+            currentPlayer === playerOne;
             console.log(currentPlayer)
         } else if (trackFirstPlayer % 2 !== 0) {
-            currentPlayer === playerYellow;
+            playerOne === playerYellow
+            currentPlayer === playerOne;
         }
     }
 
@@ -263,18 +271,19 @@ function setWinner(r, c) {
     }
 
     function playerRedState() {
+        
         timerContainerRed.style.display = 'block';
         timerBackground.style.display = 'block';
         timerContainerYellow.style.display = 'none';
         winnerContainer.style.display = 'none';
-        winnerBackground.style.display = 'none';
+        // winnerBackground.style.display = 'none';
     }
 
     function playerYellowState() {
         timerContainerYellow.style.display = 'block';
         timerBackground.style.display = 'block';
         winnerContainer.style.display = 'none';
-        winnerBackground.style.display = 'none';
+        // winnerBackground.style.display = 'none';
     }
 
     function redWinState() {
@@ -286,10 +295,12 @@ function setWinner(r, c) {
     }
 
     function yellowWinState() {
+        winnerBackground.style.backgroundColor = 'hsl(41 100% 70%)';
+        winnerBackground.style.borderColor = 'hsl(41 100% 70%)';
         // if yellow wins, yellow win state is shown
         console.log('yellow win state')
         // timerContainerYellow.style.display = 'block';
-        timerBackground.style.display = 'block';
-        winnerContainer.style.display = 'none';
-        winnerBackground.style.display = 'none';
+        timerBackground.style.display = 'none';
+        winnerContainer.style.display = 'flex';
+        winnerBackground.style.display = 'block';
     }

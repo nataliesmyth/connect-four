@@ -426,9 +426,29 @@ a {
     width: 100%;
 }
 
-.timer-container {
+.timer-container-red {
     /* display: none; */
     background-image: url(assets/images/Rectangle\(1\).svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 9.375rem;
+    width: 11.9rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /* top: 100; */
+}
+
+.timer-container-yellow {
+    display: none;
+    background-image: url(assets/images/Rectangle\(2\).svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
