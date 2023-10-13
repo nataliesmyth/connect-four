@@ -41,7 +41,9 @@ window.onload = function() {
 }
 
 function handleInGameMenu() {
-    console.log('in game menu');
+    let inGameMenu = document.getElementById('ingameMenu');
+    inGameMenu.style.display = 'flex';
+    // document.getElementById('gameBody').style.color = '.5'
 }
 
 const intervalID = setInterval(setTimer, 1000);
@@ -124,7 +126,6 @@ function setPiece() {
     // setInterval(setTimer, 1000);
 
     r -= 1;
-    // console.log(r)
     currColumns[c] = r;
 
     checkWinner()
@@ -220,8 +221,6 @@ function setWinner(r, c) {
     // handleRestart()
     // setGame()
 }
-
-// menu.addEventListener('click', )
     function handleRestartClick() {
         gameOver = false;
         
@@ -251,27 +250,22 @@ function setWinner(r, c) {
     }
 
     function handleFirstPlayer() {
-        if (trackFirstPlayer % 2 === 0) {
+        const lastFirstPlayer = trackFirstPlayer[trackFirstPlayer.length - 1];
+        console.log(typeof lastFirstPlayer)
+        if (lastFirstPlayer === 'y') {
             playerOne === playerRed;
             currentPlayer === playerOne;
-            console.log(currentPlayer)
-        } else if (trackFirstPlayer % 2 !== 0) {
-            playerOne === playerYellow
+            playerRedState();
+            console.log(currentPlayer, 'player red state')
+        } else if (lastFirstPlayer === 'r') {
+            playerOne === playerYellow;
             currentPlayer === playerOne;
+            playerYellowState();
+            console.log(currentPlayer, 'player yellow state')
         }
     }
 
-    function playerState() {
-        // if it's player red's turn, player red state is shown
-        // if it's player yellow's turn, player yellow state is shown
-    }
-
-    function playerWinState() {
-
-    }
-
     function playerRedState() {
-        
         timerContainerRed.style.display = 'block';
         timerBackground.style.display = 'block';
         timerContainerYellow.style.display = 'none';
@@ -282,6 +276,7 @@ function setWinner(r, c) {
     function playerYellowState() {
         timerContainerYellow.style.display = 'block';
         timerBackground.style.display = 'block';
+        timerContainerRed.style.display = 'none';
         winnerContainer.style.display = 'none';
         // winnerBackground.style.display = 'none';
     }
