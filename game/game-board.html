@@ -9,13 +9,20 @@
     <script defer src="scripts/game-logic.js"></script>
     <title>Connect Four Game Board</title>
 </head>
-<body class="bg-purple ff-sans">
+<body id="gameBody" class="bg-purple ff-sans">
     <main class="main">
         <nav class="nav flex">
-            <a href="./index.html" id="game-menu" class="bg-dark-purple text-light menu uppercase border-2 fs-400 no-shadow">Menu</a>
+            <button id="game-menu" class="bg-dark-purple text-light menu uppercase border-2 fs-400 no-shadow ingame-menu-btn">Menu</button>
             <div class="logo"><img src="assets/images/logo.svg" alt="connect four logo" id="logo"></div>
-                <button id="restartBtn" class="bg-dark-purple text-light menu uppercase border-2 no-shadow">Restart</button>
+                <button id="restartBtn" class="restart-btn bg-dark-purple text-light menu uppercase border-2 no-shadow">Restart</button>
         </nav>
+
+        <div id="ingameMenu" class="ingame-menu container box-shadow border-0 flex bg-purple">
+            <h1 class="uppercase text-light fw-700 fs-800">pause</h1>
+            <button class="btn bg-white text-dark menu uppercase border-0 box-shadow fw-700 fs-600">Continue</button>
+            <button class="btn bg-white text-dark menu uppercase border-0 box-shadow fw-700 fs-600">Restart</button>
+            <a href="index.html" class="btn bg-red text-light menu uppercase border-0 box-shadow fw-700 fs-600">Quit Game</a>
+        </div>
 
         <div class="score flex container">
             <img class="red-icon" src="./assets/images/player-one.svg" alt="player one icon">

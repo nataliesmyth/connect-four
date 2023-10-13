@@ -62,6 +62,7 @@ body {
     font-size: var(--fs-400);
     line-height: 1.5;
     min-height: 100vh;
+    /* opacity: .5; */
 }
 
 /* make images easier to work with */
@@ -259,8 +260,10 @@ a {
     align-self: center;
 }
 
-.check-icon {
-    /* width: 2%; */
+.restart-btn,
+.ingame-menu-btn {
+    border: none;
+    width: 6.75rem;
 }
 
 #typography span {
@@ -341,6 +344,7 @@ a {
 /* ------------------- */
 
 .main {
+    position: relative;
     margin-inline: .05em;
 }
 
@@ -542,9 +546,6 @@ div > p {
     z-index: 50000;
 }
 
-.winner-text-container {
-    /* padding-block: 1em 0; */
-}
 .winner-text {
     text-align: center;
 }
@@ -562,6 +563,40 @@ div > p {
 .btn-play-again {
     padding: .5em 1em;
     border: none;
+}
+
+/* In Game Menu */
+
+.ingame-menu {
+    display: none;
+    text-align: center;
+    /* max-width: 20.9375; */
+    margin: 3em auto;
+    border: 3px solid hsl( var(--clr-black) );
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-inline: 1em;
+    gap: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+}
+
+.ingame-menu > h1 {
+    margin-block: .5em;
+}
+
+.ingame-menu > .btn,
+.ingame-menu > a {
+    display: inline-block;
+    width: 18.4375rem;
+    border: 3px solid hsl( var(--clr-black) );
+    margin-block-end: 1.25em;
+    /* margin-inline: -1em; */
+    left: 0;
+    /* right: 0; */
 }
 
 @media (min-width: 768px) {
