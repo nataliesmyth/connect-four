@@ -121,7 +121,7 @@ select {
     padding-inline: 2.5em;
     margin-inline: auto;
     /* width: 30rem; */
-    max-width: 80rem;
+    /* max-width: 80rem; */
 }
 
 .sr-only {
@@ -491,22 +491,18 @@ a {
 .red-icon {
     display: block;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    left: -30px;
     margin-top: auto;
     margin-bottom: auto;
-    left: 0;
     z-index: 10;
 }
 
 .yellow-icon {
     display: block;
     position: absolute;
-    top: 0;
-    bottom: 0;
     margin-top: auto;
     margin-bottom: auto;
-    right: 0;
+    right: -30px;
     z-index: 10;
 }
 
@@ -594,12 +590,10 @@ div > p {
     width: 18.4375rem;
     border: 3px solid hsl( var(--clr-black) );
     margin-block-end: 1.25em;
-    /* margin-inline: -1em; */
     left: 0;
-    /* right: 0; */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 38rem) {
     .main-menu {
         display: flex;
         align-items: center;
@@ -607,9 +601,42 @@ div > p {
         padding: 1em;
         border: 3px solid red;
     }
+
+    .board {
+        width: 39.5rem;
+        height: 36.5rem;
+    }
+
+    .tile {
+        width: 4rem;
+        height: 4rem;
+        margin-inline: .5em;  
+    }
+
+    .score-container {
+        width: 272px;
+        height: 100px;
+        position: relative;
+    }
+
+    .red-icon {
+        position: absolute;
+        left: -30px;
+    }
+
+    .yellow-icon {
+        position: absolute;
+        right: -20px;
+    }
 }
 
 @media (min-width: 90rem) {
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .main-menu {
         display: flex;
         width: 90rem;

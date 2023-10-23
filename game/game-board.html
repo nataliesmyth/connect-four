@@ -25,20 +25,20 @@
         </div>
 
         <div class="score flex container">
-            <img class="red-icon" src="./assets/images/player-one.svg" alt="player one icon">
-            <div class="player player-one bg-white uppercase ff-sans border-0 container box-shadow flex">
+            <div class="score-container player player-one bg-white uppercase ff-sans border-0 container box-shadow flex">
+                <img class="red-icon" src="./assets/images/player-one.svg" alt="player one icon">
                 <div class="score">
                     <p class="fs-400 fw-600">Player 1</p>
                     <p class="fs-700 fw-700"             id="red-win-count">0</p>
                 </div>
             </div>
-            <div class="player player-two bg-white uppercase ff-sans border-0 container box-shadow flex">
+            <div class="score-container player player-two bg-white uppercase ff-sans border-0 container box-shadow flex">
                 <div class="score">
                     <p class="fs-400 fw-600">Player 2</p>
                     <p class="fs-700 fw-700" id="yellow-win-count">0</p>
                 </div>
+                <img class="yellow-icon" src="./assets/images/player-two.svg" alt="player two icon">
             </div>
-            <img class="yellow-icon" src="./assets/images/player-two.svg" alt="player two icon">
         </div>
         <!-- <div id="boardBackground" class="boardBgd border-0"></div> -->
         <div id="board" class="board border-0"></div>
@@ -47,13 +47,13 @@
             <div class="flex timer-container-red" id="timerContainerRed">
                 <div class="timer-container-text">
                     <p class="uppercase text-light">player <span id="current-player">1</span>'s turn</p>
-                    <p class="text-light fs-800 fw-600"><span id="timer">30</span>s</p>
+                    <p class="text-light fs-800 fw-600"><span class="timer" id="timer">30</span>s</p>
                 </div>
             </div>
             <div class="flex timer-container-yellow" id="timerContainerYellow">
                 <div class="timer-container-text">
                     <p class="uppercase text-black">player <span id="current-player">2</span>'s turn</p>
-                    <p class="text-black fs-800 fw-600"><span id="timer">30</span>s</p>
+                    <p class="text-black fs-800 fw-600"><span class="timer" id="timer">30</span>s</p>
                 </div>
             </div>
         </section>
