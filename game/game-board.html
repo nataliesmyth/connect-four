@@ -11,6 +11,13 @@
 </head>
 <body id="gameBody" class="bg-purple ff-sans">
     <main class="main">
+        <section class="test">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
         <nav class="nav flex">
             <button id="game-menu" class="bg-dark-purple text-light menu uppercase border-2 fs-400 no-shadow ingame-menu-btn">Menu</button>
             <div class="logo"><img src="assets/images/logo.svg" alt="connect four logo" id="logo"></div>
@@ -29,7 +36,7 @@
                 <img class="red-icon" src="./assets/images/player-one.svg" alt="player one icon">
                 <div class="score">
                     <p class="fs-400 fw-600">Player 1</p>
-                    <p class="fs-700 fw-700"             id="red-win-count">0</p>
+                    <p class="fs-700 fw-700" id="red-win-count">0</p>
                 </div>
             </div>
             <div class="score-container player player-two bg-white uppercase ff-sans border-0 container box-shadow flex">
@@ -41,34 +48,44 @@
             </div>
         </div>
         <!-- <div id="boardBackground" class="boardBgd border-0"></div> -->
-        <div id="board" class="board border-0"></div>
-        <section class="timer-background bg-dark-purple container"
-        id="timerBackground">
-            <div class="flex timer-container-red" id="timerContainerRed">
-                <div class="timer-container-text">
-                    <p class="uppercase text-light">player <span id="current-player">1</span>'s turn</p>
-                    <p class="text-light fs-800 fw-600"><span class="timer" id="timer">30</span>s</p>
-                </div>
+        <div class="marker">
+            <div class="marker-red" id="marker"></div>
+          </div>
+        <section class="board-game-container">
+            <div class="board-black border-0">
+                <div id="black-col-1"></div>
+                <div id="black-col-2"></div>
+                <div id="black-col-3"></div>
+                <div id="black-col-4"></div>
+                <div id="black-col-5"></div>
+                <div id="black-col-6"></div>
+                <div id="black-col-7"></div>
             </div>
-            <div class="flex timer-container-yellow" id="timerContainerYellow">
-                <div class="timer-container-text">
-                    <p class="uppercase text-black">player <span id="current-player">2</span>'s turn</p>
-                    <p class="text-black fs-800 fw-600"><span class="timer" id="timer">30</span>s</p>
-                </div>
+            <div class="board-white border-0">
+                <div id="white-col-1"></div>
+                <div id="white-col-2"></div>
+                <div id="white-col-3"></div>
+                <div id="white-col-4"></div>
+                <div id="white-col-5"></div>
+                <div id="white-col-6"></div>
+                <div id="white-col-7"></div>
             </div>
         </section>
-        <div class="winner-background bg-red" id="winnerBackground">
-            <div class="winner-container bg-white border-2 uppercase" id="winnerContainer">
-                <section class="winner-text-container">
-                    <p class="fw-400 winner-text" id="winner"></p>
-                    <p class="uppercase fs-800 fw-600">wins</p>
-                </section>
-                <section class="play-again">
-                    <button class="btn-play-again uppercase bg-dark-purple text-light border-0" id="playAgainBtn">play again</button>
-                </section>
+        <section class="timer-background bg-dark-purple container"
+        id="timerBackground">
+        <div id="turn">
+            <p><span id="current-player"></span> turn</p>
+            <p><span id="time">30</span><span id="second">s</span></p>
+          </div>
+          <div id="wins-rect" class="wins-rect hidden">
+            <p id="winner"></p>
+            <p id="wins-draw"></p>
+            <div class="menu-btn" onclick="playAgain()">
+              play again
             </div>
-        </div>
-        <!-- <img src="assets/images/Rectangle(1).svg" alt=""> -->
+          </div>
+          <div id="turn-bg"></div>
+        </section>
     </main>
 </body>
 </html>
